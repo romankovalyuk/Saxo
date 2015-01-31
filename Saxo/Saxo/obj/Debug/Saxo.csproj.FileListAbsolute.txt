@@ -24,3 +24,29 @@ c:\users\admin\documents\visual studio 2013\Projects\Saxo\Saxo\bin\Newtonsoft.Js
 c:\users\admin\documents\visual studio 2013\Projects\Saxo\Saxo\obj\Debug\Saxo.csprojResolveAssemblyReference.cache
 c:\users\admin\documents\visual studio 2013\Projects\Saxo\Saxo\obj\Debug\Saxo.dll
 c:\users\admin\documents\visual studio 2013\Projects\Saxo\Saxo\obj\Debug\Saxo.pdb
+D:\Study\Saxo\Saxo\Saxo\bin\Saxo.dll.config
+D:\Study\Saxo\Saxo\Saxo\bin\Saxo.dll
+D:\Study\Saxo\Saxo\Saxo\bin\Saxo.pdb
+D:\Study\Saxo\Saxo\Saxo\bin\Antlr3.Runtime.dll
+D:\Study\Saxo\Saxo\Saxo\bin\Microsoft.Web.Infrastructure.dll
+D:\Study\Saxo\Saxo\Saxo\bin\Newtonsoft.Json.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Helpers.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Mvc.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Optimization.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Razor.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.WebPages.Deployment.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.WebPages.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.WebPages.Razor.dll
+D:\Study\Saxo\Saxo\Saxo\bin\WebGrease.dll
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Helpers.xml
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Mvc.xml
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Optimization.xml
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.Razor.xml
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.WebPages.xml
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.WebPages.Deployment.xml
+D:\Study\Saxo\Saxo\Saxo\bin\System.Web.WebPages.Razor.xml
+D:\Study\Saxo\Saxo\Saxo\bin\Antlr3.Runtime.pdb
+D:\Study\Saxo\Saxo\Saxo\bin\Newtonsoft.Json.xml
+D:\Study\Saxo\Saxo\Saxo\obj\Debug\Saxo.dll
+D:\Study\Saxo\Saxo\Saxo\obj\Debug\Saxo.pdb
+D:\Study\Saxo\Saxo\Saxo\obj\Debug\Saxo.csprojResolveAssemblyReference.cache

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
+using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using Saxo.Flow;
 
 namespace Saxo.Controllers
 {
@@ -13,18 +16,21 @@ namespace Saxo.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public async Task<JsonResult> GetItem(string key)
         {
-            ViewBag.Message = "Your application description page.";
+            var flow = new SaxoFlow();
+            var flowResult = (SaxoFlowResult) await flow.Execute(new RequestInfo(key));
 
-            return View();
+            var result = flowResult.IsValidResult ? new JavaScriptSerializer().Serialize(flowResult) : String.Empty;
+
+            return Json(result);
         }
 
-        public ActionResult Contact()
+        public JsonResult UpadeItem(string key)
         {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+            return Json("updeted");
         }
+
     }
 }
