@@ -50,3 +50,7 @@ D:\Study\Saxo\Saxo\Saxo\bin\Newtonsoft.Json.xml
 D:\Study\Saxo\Saxo\Saxo\obj\Debug\Saxo.dll
 D:\Study\Saxo\Saxo\Saxo\obj\Debug\Saxo.pdb
 D:\Study\Saxo\Saxo\Saxo\obj\Debug\Saxo.csprojResolveAssemblyReference.cache
+D:\Study\Saxo\Saxo\Saxo\bin\MongoDB.Bson.dll
+D:\Study\Saxo\Saxo\Saxo\bin\MongoDB.Driver.dll
+D:\Study\Saxo\Saxo\Saxo\bin\MongoDB.Bson.xml
+D:\Study\Saxo\Saxo\Saxo\bin\MongoDB.Driver.xml

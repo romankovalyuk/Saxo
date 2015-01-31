@@ -17,7 +17,11 @@
     var template = _.template(' \
             <div data-item="<%- Isbn %>" class="col-sm-2"> \
                <img src="<%- ImageUrl %>" class="image">\
-               <input type="checkbox" class="checkBox" id="<%- Isbn %>">\
+                <% if(IsChecked === true){ %> \
+                  <input type="checkbox" class="checkBox" id="<%- Isbn %>" checked >\
+                  <% }else {%>\
+                  <input type="checkbox" class="checkBox" id="<%- Isbn %>" >\
+                  <% } %>\
                <div class="teaser__heading"><span><%- Title %> </span></div>\
                <span >rating <%- RatingCount %></span>\
                <span><%- Price %>$</span>\
@@ -27,13 +31,18 @@
     var loadedIsbn = [];
     $('#textArea').keypress(function (event) {
         if (event.keyCode == 13) {
+            var isbnToLoad = [];
             var keysArray= $('#textArea').val().split('\n');
             $.each(keysArray, function (index, value) {
                 if (value !== "") { //$.inArray(value, loadedIsbn) === -1 && 
                     GetItemInfo(value);
+                    //isbnToLoad.push(value);
                 }
             });
             
+           /* if (isbnToLoad.length > 0) {
+                GetItemsInfo(isbnToLoad);
+            }*/
         }
         return true;
     });
@@ -52,18 +61,33 @@
         });
     };
 
+    function GetItemsInfo(keys) {
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "Home/GetItems",
+            data: { keys: keys },
+            success: function (result) {
+                debugger;
+                loadedIsbn = loadedIsbn.concat(keys);
+                var items = JSON.parse(result);
+                $.each(items, function (index, item) {
+                    $('#items').html($('#items').html() + template(item));
+                });
+            }
+        });
+    };
+
     function AssignEvent() {
         $('.checkBox').change(function () {
             var key = this.id;
+            var checked = this.checked;
             $.ajax({
                 type: "POST",
                 url: "/Home/UpadeItem",
-                data: { key: key }
+                data: { key: key, value: checked }
             });
         });
     }
-
-   
-
 
 </script>

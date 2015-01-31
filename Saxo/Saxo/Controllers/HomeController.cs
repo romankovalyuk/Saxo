@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Helpers;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using Saxo.Flow;
 
 namespace Saxo.Controllers
 {
@@ -16,21 +11,32 @@ namespace Saxo.Controllers
             return View();
         }
 
-        public async Task<JsonResult> GetItem(string key)
+        public async Task<JsonResult> GetItems(string[] keys)
         {
-            var flow = new SaxoFlow();
-            var flowResult = (SaxoFlowResult) await flow.Execute(new RequestInfo(key));
+            var manager = new Manager();
+            var books = await manager.GetBooks((keys));
 
-            var result = flowResult.IsValidResult ? new JavaScriptSerializer().Serialize(flowResult) : String.Empty;
-
+            var result = new JavaScriptSerializer().Serialize(books);
             return Json(result);
         }
 
-        public JsonResult UpadeItem(string key)
+        public async Task<JsonResult> GetItem(string key)
         {
+            var manager = new Manager();
+            var book = await manager.GetBook((key));
 
-            return Json("updeted");
+            var result = new JavaScriptSerializer().Serialize(book);
+            return Json(result);
         }
+
+        public JsonResult UpadeItem(string key, bool value)
+        {
+            var manager = new Manager();
+            manager.UpdateBookChecked(key, value);
+
+            return Json("os");
+        }
+
 
     }
 }

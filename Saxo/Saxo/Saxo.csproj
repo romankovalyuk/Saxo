@@ -40,6 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.10.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -112,6 +118,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\BookRepository.cs" />
+    <Compile Include="DAL\IBookRepository.cs" />
     <Compile Include="Extensions\DictionaryExtension.cs" />
     <Compile Include="Flow\FlowBase.cs" />
     <Compile Include="Flow\FlowResultBase.cs" />
@@ -125,6 +133,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
