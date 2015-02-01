@@ -1,6 +1,5 @@
 ﻿
-<h2>Saxo</h2>
-
+<h2></h2>
 <div class="row">
     <div class="col-sm-4">
         <textarea id="textArea" rows="20" cols="50" ></textarea>
@@ -11,7 +10,7 @@
 </div>
 
 <script type="text/html" id="item-template">
-    <div class="col-sm-2 item text-small" data-bind="attr:{data: Isbn}">
+    <div class="col-sm-2 item" data-bind="attr:{data: Isbn}">
         <img class="image" data-bind="attr:{src: ImageUrl}">
         <input type="checkbox" class="checkBox" data-bind="checked: IsChecked,attr:{itemkey: Isbn}" />
         <div class="teaser__heading">
@@ -22,7 +21,7 @@
         </div>
         <div>
             <span class="label-item" data-bind="text: Label"></span>
-        </div>       
+        </div>
     </div>
 </script>
 
