@@ -29,7 +29,7 @@ textarea {
 }
 
 .teaser__heading {
-    font-weight: 700;
+    text-decoration: none;
     max-height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -38,4 +38,14 @@ textarea {
 .checkBox {
     position: absolute;
     margin: -23px 69px 0 !important;
+}
+
+.label-item {
+    font-size: 12px !important;
+    font-weight: 700;
+}
+
+.item{
+    font-size: 13px;
+    margin-top: 30px;
 }

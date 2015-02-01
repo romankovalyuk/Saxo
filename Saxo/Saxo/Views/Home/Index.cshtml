@@ -1,93 +1,31 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
 <h2>Saxo</h2>
 
 <div class="row">
     <div class="col-sm-4">
-        <textarea id="textArea" rows="20" cols="50"></textarea>
+        <textarea id="textArea" rows="20" cols="50" ></textarea>
     </div>
-    <div id="items" class="col-sm-8">
-        
+    <div id="items" class="col-sm-8" data-bind="template: { name: 'item-template', foreach: books }">
+
     </div>
 </div>
 
-<script>
-
-    var template = _.template(' \
-            <div data-item="<%- Isbn %>" class="col-sm-2"> \
-               <img src="<%- ImageUrl %>" class="image">\
-                <% if(IsChecked === true){ %> \
-                  <input type="checkbox" class="checkBox" id="<%- Isbn %>" checked >\
-                  <% }else {%>\
-                  <input type="checkbox" class="checkBox" id="<%- Isbn %>" >\
-                  <% } %>\
-               <div class="teaser__heading"><span><%- Title %> </span></div>\
-               <span >rating <%- RatingCount %></span>\
-               <span><%- Price %>$</span>\
-            </div>\
-            ');
-
-    var loadedIsbn = [];
-    $('#textArea').keypress(function (event) {
-        if (event.keyCode == 13) {
-            var isbnToLoad = [];
-            var keysArray= $('#textArea').val().split('\n');
-            $.each(keysArray, function (index, value) {
-                if (value !== "") { //$.inArray(value, loadedIsbn) === -1 && 
-                    GetItemInfo(value);
-                    //isbnToLoad.push(value);
-                }
-            });
-            
-           /* if (isbnToLoad.length > 0) {
-                GetItemsInfo(isbnToLoad);
-            }*/
-        }
-        return true;
-    });
-
-    function GetItemInfo(key) {
-        $.ajax({
-            type: "POST",
-            url: "/Home/GetItem",
-            data: { key: key },
-            success: function (result) {
-                var item = JSON.parse(result);
-                loadedIsbn.push(key);
-                $('#items').html($('#items').html() + template(item));
-                AssignEvent();
-            }
-        });
-    };
-
-    function GetItemsInfo(keys) {
-        debugger;
-        $.ajax({
-            type: "POST",
-            url: "Home/GetItems",
-            data: { keys: keys },
-            success: function (result) {
-                debugger;
-                loadedIsbn = loadedIsbn.concat(keys);
-                var items = JSON.parse(result);
-                $.each(items, function (index, item) {
-                    $('#items').html($('#items').html() + template(item));
-                });
-            }
-        });
-    };
-
-    function AssignEvent() {
-        $('.checkBox').change(function () {
-            var key = this.id;
-            var checked = this.checked;
-            $.ajax({
-                type: "POST",
-                url: "/Home/UpadeItem",
-                data: { key: key, value: checked }
-            });
-        });
-    }
-
+<script type="text/html" id="item-template">
+    <div class="col-sm-2 item text-small" data-bind="attr:{data: Isbn}">
+        <img class="image" data-bind="attr:{src: ImageUrl}">
+        <input type="checkbox" class="checkBox" data-bind="checked: IsChecked,attr:{itemkey: Isbn}" />
+        <div class="teaser__heading">
+            <a data-bind="text: Title, attr:{href: Url}"></a>
+        </div>
+        <div>
+            Rating: <span data-bind="text: RatingCount"></span>
+        </div>
+        <div>
+            <span class="label-item" data-bind="text: Label"></span>
+        </div>       
+    </div>
 </script>
+
+<script src="~/Scripts/app/bookModel.js"></script>
+<script src="~/Scripts/app/booksViewModel.js"></script>
+<script src="~/Scripts/app/app.js"></script>

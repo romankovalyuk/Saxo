@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
@@ -31,10 +32,17 @@ namespace Saxo.Controllers
 
         public JsonResult UpadeItem(string key, bool value)
         {
-            var manager = new Manager();
-            manager.UpdateBookChecked(key, value);
+            try
+            {
+                var manager = new Manager();
+                manager.UpdateBookChecked(key, value);
+            }
+            catch (Exception)
+            {
+                return Json("Failed");
+            }  
 
-            return Json("os");
+            return Json("Updated successfully");
         }
 
 
