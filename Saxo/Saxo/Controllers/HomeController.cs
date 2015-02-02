@@ -21,15 +21,6 @@ namespace Saxo.Controllers
             return Json(result);
         }
 
-        public async Task<JsonResult> GetItem(string key)
-        {
-            var manager = new Manager();
-            var book = await manager.GetBook((key));
-
-            var result = new JavaScriptSerializer().Serialize(book);
-            return Json(result);
-        }
-
         public JsonResult UpadeItem(string key, bool value)
         {
             try
