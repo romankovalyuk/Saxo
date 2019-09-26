@@ -7,7 +7,7 @@ namespace Saxo.Helpers
 {
     public static class JsonHelper
     {
-        public static ExpandoObject ConvertJsonStringToExpando(string json)
+        public static ExpandoObject ConvertJsonStringToExpando( string json )
         {
             var serializer = new JavaScriptSerializer();
 
