@@ -9,7 +9,7 @@ namespace Saxo.Extensions
         public static ExpandoObject Expando(this IDictionary<string, object> dictionary)
         {
             var expando = new ExpandoObject();
-            var expandoDic = (IDictionary<string, object>)expando;
+            var expandoDic = ( IDictionary<string, object> )expando;
 
             foreach (var item in dictionary)
             {
